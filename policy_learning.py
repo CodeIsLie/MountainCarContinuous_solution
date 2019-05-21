@@ -12,9 +12,3 @@ def init_policy(vel_bins, state_bins):
         policy[vel] = np.full(state_bins, 1.0)
 
     return policy.astype(np.int)
-
-
-def calc_velocity(old_observation, new_observation):
-    sign = 1 if new_observation[0] - old_observation[0] > 0 else -1
-    speed = np.sqrt((new_observation[0] - old_observation[0]) ** 2 + (new_observation[1] - old_observation[1]) ** 2)
-    return sign * speed
